@@ -29,8 +29,8 @@ def decode(digits, base):
     digits = digits[::-1] # Reverse the list because index starts left to right, and we need to start right to left
     
     for i in range(len(digits)):
-        if digits[i].isalpha():
-            digit = string.ascii_lowercase.index(digits[i].lower()) + 10 # Can add 10 b/c starts at 0
+        if digits[i].isalpha(): # Checks to see if the digit is a character instead of numerical
+            digit = string.ascii_lowercase.index(digits[i].lower()) + 10 # Can add 10 b/c starts at 0, in alphabetical order
         else:
             digit = int(digits[i]) # Convert to integer
         
