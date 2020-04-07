@@ -17,6 +17,11 @@ def factorial_iterative(n):
     pass
     # once implemented, change factorial (above) to call factorial_iterative
     # to verify that your iterative implementation passes all tests
+    total = 1
+    for i in range(n):
+        num = n - i
+        total *= num
+    return total
 
 
 def factorial_recursive(n):
