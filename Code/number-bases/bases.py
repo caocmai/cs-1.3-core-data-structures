@@ -28,17 +28,14 @@ def decode(digits, base):
 
     for i in range(len(digits)):
         if digits[i].isalpha():
-            temp_val = string.ascii_lowercase.index(digits[i].lower()) + 10
+            temp_val = string.ascii_lowercase.index(digits[i].lower()) + 10 # Can add 10 b/c starts at 0
         else:
-            temp_val = int(digits[i])
+            temp_val = int(digits[i]) # Convert to integer
         
-        decoded_value += temp_val * (base ** (len(digits) - i - 1))
-
-
+        power = len(digits) - i - 1 # Get the power
+        decoded_value += temp_val * (base ** power)
 
     return decoded_value
-
-print(decode("10010011", 2))
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
@@ -55,6 +52,19 @@ def encode(number, base):
     # ...
     # TODO: Encode number in any base (2 up to 36)
     # ...
+
+    encoded_string = ''
+    while number > 0: 
+        remainder = number % base
+        number -= remainder
+        number = number // base
+
+        if remainder > 9:
+            remainder = string.ascii_lowercase[remainder-10]
+
+        encoded_string += str(remainder)
+
+    return ''.join(reversed(encoded_string))
 
 
 def convert(digits, base1, base2):
@@ -74,7 +84,7 @@ def convert(digits, base1, base2):
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
-
+    
 
 def main():
     """Read command-line arguments and convert given digits between bases."""
