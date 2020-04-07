@@ -10,23 +10,6 @@ import string
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
 
-
-def digit_to_ascii(digit):
-    return string.printable[digit]
-
-# def to_binary(number):
-#     binary_number = []
-#     while number >= 1:
-#         binary_number.insert(0, number % 2)
-#         number = number // 2
-#     return binary_number
-
-# def to_binary_recursive(number):
-#     if number >= 1:
-#         print(number % 2)
-#         to_binary_recursive(number // 2)
-#     return
-
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
     digits: str -- string representation of number (in given base)
@@ -35,21 +18,11 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
-
     # ...
     # TODO: Decode digits from hexadecimal (base 16)
     # ...
     # TODO: Decode digits from any base (2 up to 36)
-
     # ...
-
-    decoded_num = 0
-    for i, value in enumerate(digits[::-1]):
-        decoded_num += int(value, base) * (base**i)
-    return decoded_num
-
-
-
 
 
 def encode(number, base):
@@ -62,39 +35,10 @@ def encode(number, base):
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
     # TODO: Encode number in binary (base 2)
-
-    # encoded_number = ""
-    # while number >= 1:
-    #     encoded_number += str(number % 2)
-    #     number = number // 2
-    
-    # return encoded_number[::-1]
-    
-
-
     # ...
     # TODO: Encode number in hexadecimal (base 16)
     # ...
-
-    # encoded_number = ''
-
-    # while number >= 1:
-    #     encoded_number += str(number % 16)
-    #     number = number // 16
-    # return encoded_number[::-1]
-
-
     # TODO: Encode number in any base (2 up to 36)
-
-    encoded_number = ''
-
-    while number >= 1:
-        encoded_number += str(digit_to_ascii(number % base))
-        number = number // base
-    return encoded_number[::-1]
-
-
-
     # ...
 
 
@@ -114,11 +58,6 @@ def convert(digits, base1, base2):
     # TODO: Convert digits from base 10 to base 16 (and vice versa)
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
-
-    base_10_number = decode(digits, base1)
-    converted_number = encode(base_10_number, base2)
-    return converted_number
-
     # ...
 
 
@@ -138,14 +77,5 @@ def main():
         print('Converts digits from base1 to base2')
 
 
-
-    # print(decode("f23", 16))
-    # print(encode(190, 16))
-    # print(convert("111000", 2, 16))
-    # print(to_binary_recursive(49))
-
-
 if __name__ == '__main__':
     main()
-    # print(decode('1f', 16))
-    # print(encode(45, 2))
