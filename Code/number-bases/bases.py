@@ -26,7 +26,7 @@ def decode(digits, base):
 
     decoded_value = 0
 
-    digits = digits[::-1] # Reverse the list because index starts right to left, and we need to start left to right
+    digits = digits[::-1] # Reverse the list because index starts left to right, and we need to start right to left
     
     for i in range(len(digits)):
         if digits[i].isalpha():
