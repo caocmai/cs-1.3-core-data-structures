@@ -18,7 +18,7 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
-    # ...
+    # ... 
     # TODO: Decode digits from hexadecimal (base 16)
     # ...
     # TODO: Decode digits from any base (2 up to 36)
@@ -26,14 +26,16 @@ def decode(digits, base):
 
     decoded_value = 0
 
+    digits = digits[::-1] # Reverse the list because index starts right to left, and we need to start left to right
+    
     for i in range(len(digits)):
         if digits[i].isalpha():
-            temp_val = string.ascii_lowercase.index(digits[i].lower()) + 10 # Can add 10 b/c starts at 0
+            digit = string.ascii_lowercase.index(digits[i].lower()) + 10 # Can add 10 b/c starts at 0
         else:
-            temp_val = int(digits[i]) # Convert to integer
+            digit = int(digits[i]) # Convert to integer
         
-        power = len(digits) - i - 1 # Get the power
-        decoded_value += temp_val * (base ** power)
+        # power = len(digits) - i - 1 # Get the power
+        decoded_value += digit * (base ** i)
 
     return decoded_value
 
@@ -55,12 +57,12 @@ def encode(number, base):
 
     encoded_string = ''
     while number > 0: 
-        remainder = number % base
+        remainder = number % base # Find remainder 
         number -= remainder
-        number = number // base
+        number = number // base # Just get the floor division and no remainder
 
-        if remainder > 9:
-            remainder = string.ascii_lowercase[remainder-10]
+        if remainder > 9: # For hexidemcial cause goes up to 9, so only 10 and up
+            remainder = string.ascii_lowercase[remainder-10] # again because starts at 0
 
         encoded_string += str(remainder)
 
@@ -84,7 +86,9 @@ def convert(digits, base1, base2):
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
-    
+    decoded = decode(digits, base1)
+    converted = encode(decoded, base2)
+    return converted
 
 def main():
     """Read command-line arguments and convert given digits between bases."""
