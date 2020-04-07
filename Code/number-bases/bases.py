@@ -24,6 +24,21 @@ def decode(digits, base):
     # TODO: Decode digits from any base (2 up to 36)
     # ...
 
+    decoded_value = 0
+
+    for i in range(len(digits)):
+        if digits[i].isalpha():
+            temp_val = string.ascii_lowercase.index(digits[i].lower()) + 10
+        else:
+            temp_val = int(digits[i])
+        
+        decoded_value += temp_val * (base ** (len(digits) - i - 1))
+
+
+
+    return decoded_value
+
+print(decode("10010011", 2))
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
