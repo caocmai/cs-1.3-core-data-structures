@@ -17,7 +17,7 @@ def factorial_iterative(n):
     pass
     # once implemented, change factorial (above) to call factorial_iterative
     # to verify that your iterative implementation passes all tests
-    total = 1
+    total = 0
     for i in range(n):
         num = n - i
         total *= num
