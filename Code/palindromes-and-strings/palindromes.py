@@ -49,18 +49,19 @@ def is_palindrome_recursive(text, left=None, right=None):
     for letter in text.lower():
       if string.ascii_lowercase.find(letter) >= 0:
           cleaned_string += letter
-    # print(cleaned_string)
-    start = 0
-    end = len(cleaned_string) - 1
+    # If left and right None then set then to be 0, and lenth of string - 1 respectively
+    if left is None and right is None:
+        left = 0
+        right = len(cleaned_string) - 1
 
-    if cleaned_string[start] != cleaned_string[end]:
+    if len(cleaned_string) == 0: # This if the string is empty
+        return True
+    elif cleaned_string[left] != cleaned_string[right]:
         return False
-
-    if left == right or right == 0:
+    elif right == 0:
         return True
     else:
         return is_palindrome_recursive(cleaned_string, left+1, right-1)
-
 
 def main():
     import sys
