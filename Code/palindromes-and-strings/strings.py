@@ -8,7 +8,7 @@ def contains(text, pattern):
     start = 0
     end = 0
     
-    if pattern == '': # If patter in none return True
+    if pattern == '': # If pattern in empty return True
         return True
 
     while start < len(text):
@@ -35,7 +35,7 @@ def find_index(text, pattern):
     start = 0
     end = 0
 
-    if pattern == '':
+    if pattern == '': # If pattern empty return 0
         return 0
 
     while start < len(text):
@@ -46,7 +46,7 @@ def find_index(text, pattern):
         else:
             end += 1
         
-        if end == len(pattern):
+        if end == len(pattern): # They all matches so return the start which is index
             return start
 
 
