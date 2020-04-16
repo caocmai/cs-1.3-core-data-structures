@@ -11,10 +11,10 @@ def contains(text, pattern):
     if pattern == '': # If pattern in empty return True
         return True
 
-    while start < len(text):
+    while (start+end) < len(text):
         if text[start+end] != pattern[end]:
             start += 1
-            end = 0
+            end = 0 # Resetting end to be 0, if no match found
             continue
         else: # There is a match so move the pointer down
             end += 1
@@ -38,7 +38,7 @@ def find_index(text, pattern):
     if pattern == '': # If pattern empty return 0
         return 0
 
-    while start < len(text):
+    while (start+end) < len(text):
         if text[start+end] != pattern[end]:
             start += 1
             end = 0
@@ -56,6 +56,30 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    list_match_indexes = []
+    start = 0
+    end = 0
+
+    if pattern == '': # If pattern empty return 0
+        return 0
+
+    while (start+end) < len(text):
+        if text[start+end] != pattern[end]:
+            start += 1
+            end = 0
+            continue
+        else:
+            end += 1
+        
+        if end == len(pattern): # They all matches so return the start which is index
+            list_match_indexes.append(start)
+            start += end # Move start pointer to after the match
+            end = 0 # To rest end point
+
+
+    return list_match_indexes
+
+
 
 
 def test_string_algorithms(text, pattern):
