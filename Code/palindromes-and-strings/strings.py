@@ -5,6 +5,25 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
+    start = 0
+    end = 0
+    
+    if pattern == '': # If patter in none return True
+        return True
+
+    while start < len(text):
+        if text[start+end] != pattern[end]:
+            start += 1
+            end = 0
+            continue
+        else: # There is a match so move the pointer down
+            end += 1
+        
+        if end == len(pattern): # If the end count is equal to pattern then all matches
+            return True
+
+    return False
+
 
 
 def find_index(text, pattern):
@@ -13,6 +32,22 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
+    start = 0
+    end = 0
+
+    if pattern == '':
+        return 0
+
+    while start < len(text):
+        if text[start+end] != pattern[end]:
+            start += 1
+            end = 0
+            continue
+        else:
+            end += 1
+        
+        if end == len(pattern):
+            return start
 
 
 def find_all_indexes(text, pattern):
