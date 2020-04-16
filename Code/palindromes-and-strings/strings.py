@@ -61,7 +61,10 @@ def find_all_indexes(text, pattern):
     end = 0
 
     if pattern == '': # If pattern empty return 0
-        return 0
+        for i in range(len(text)):
+            list_match_indexes.append(i)
+        return list_match_indexes
+
 
     while (start+end) < len(text):
         if text[start+end] != pattern[end]:
@@ -73,6 +76,11 @@ def find_all_indexes(text, pattern):
         
         if end == len(pattern): # They all matches so return the start which is index
             list_match_indexes.append(start)
+            if end >= 2:
+                if pattern[0] == pattern[1]:
+                    start += end - 1
+                    end = 0
+
             start += end # Move start pointer to after the match
             end = 0 # To rest end point
 
