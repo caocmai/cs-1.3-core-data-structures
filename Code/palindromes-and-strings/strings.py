@@ -13,7 +13,7 @@ def contains(text, pattern):
 
     while (start+end) < len(text):
         if text[start+end] != pattern[end]:
-            start += 1
+            start += 1 # Moving text pointer to next letter
             end = 0 # Resetting end to be 0, if no match found
             continue
         else: # There is a match so move the pointer down
@@ -85,8 +85,8 @@ def find_all_indexes(text, pattern):
                 end = 0
 
             # Else no overlapping to just move start to next letter in text
-            start += end # Move start pointer to after the match
-            end = 0 # To rest end point for the pattern
+            start += end # Move start pointer of text to after the match
+            end = 0 # To rest end point for the pattern, to look for another pattern in text
 
     return list_match_indexes
 

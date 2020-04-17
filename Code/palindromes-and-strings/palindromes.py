@@ -31,7 +31,7 @@ def is_palindrome_iterative(text):
     left_index = 0
     right_index = len(cleaned_string) - 1
     
-    # Loop through 1/2 of the string and see if they don't match then break out loop return False
+    # Loop through string, dividing 1/2 each time and see if they don't match then break out loop return False
     while left_index < right_index:
       if cleaned_string[left_index] != cleaned_string[right_index]:
         return False
@@ -54,6 +54,7 @@ def is_palindrome_recursive(text, left=None, right=None):
         left = 0
         right = len(cleaned_string) - 1
 
+    # Three base cases
     if len(cleaned_string) == 0: # This if the string is empty
         return True
     elif cleaned_string[left] != cleaned_string[right]:
@@ -61,7 +62,7 @@ def is_palindrome_recursive(text, left=None, right=None):
     elif right == 0:
         return True
     else:
-        return is_palindrome_recursive(cleaned_string, left+1, right-1)
+        return is_palindrome_recursive(cleaned_string, left+1, right-1) # Left pointer moves up, right down
 
 def main():
     import sys
