@@ -56,7 +56,8 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Run time(Best and Worst): O(n) because have to go through all of the 
+        nodes to get the number of items in list"""
         # Node counter initialized to zero
         node_count = 0
         # Start at the head node
@@ -92,7 +93,7 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Run time(Best and Worst): O(1) because the tail can be accessed in one step"""
         # Create a new node to hold the given item
         new_node = Node(item)
         # Check if this linked list is empty
@@ -107,7 +108,7 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Run time(Best and Worst): O(1) because like head, the head can be accessed in one step"""
         # Create a new node to hold the given item
         new_node = Node(item)
         # Check if this linked list is empty
@@ -141,16 +142,23 @@ class LinkedList(object):
     def replace(self, old_item, new_item):
         """Replace the given old_item in this linked list with given new_item
         using the same node, or raise ValueError if old_item is not found.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Run time(Worst): O(n) because have to go through the entire list 
+        Run time(Best): O(1) because found on first instance"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        pass
+        current_node = self.head
+
+        while current_node is not None:
+            if current_node.data == old_item: # If the data in the node is found in list.
+                current_node.data = new_item # Sets the current_node data to be the new stuff
+                return
+            else:
+                current_node.current_node.next # To change pointer to next node
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Run time(Best Case): O(1), beacuse finds it after the head pointer, item can be deleted by running just once
+        Run time(Worst Case): O(n), becuase you have to go every single one to find it and delete"""
         # Start at the head node
         node = self.head
         # Keep track of the node before the one containing the given item
