@@ -96,9 +96,8 @@ class StringsTest(unittest.TestCase):
         assert find_all_indexes('baaa', 'aa') == [1,2]  # overlapping pattern
         assert find_all_indexes('baaaa', 'aaa') == [1,2]  # overlapping pattern
         assert find_all_indexes('baaaaa', 'aaaa') == [1,2]  # overlapping pattern
-       
-
-
+        assert find_all_indexes('ababc', 'ab') == [0,2]  # multiple letters are harder
+      
 
     def test_find_all_indexes_with_non_matching_patterns(self):
         # Negative test cases (counterexamples) with non-matching patterns

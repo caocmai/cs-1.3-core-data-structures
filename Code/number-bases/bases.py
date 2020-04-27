@@ -26,7 +26,7 @@ def decode(digits, base):
 
     decoded_value = 0
 
-    digits = digits[::-1] # Reverse the list because index starts left to right, and we need to start right to left
+    digits = digits[::-1] # Reverse the list/string because index starts left to right, and we need to start right to left
     
     for i in range(len(digits)):
         if digits[i].isalpha(): # Checks to see if the digit is a character instead of numerical
@@ -66,7 +66,7 @@ def encode(number, base):
 
         encoded_string += str(remainder)
 
-    return ''.join(reversed(encoded_string))
+    return ''.join(reversed(encoded_string)) # To reverse the encoded string and return as string, not list
 
 
 def convert(digits, base1, base2):

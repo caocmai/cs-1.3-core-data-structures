@@ -14,7 +14,7 @@ def contains(text, pattern):
     while (start+end) < len(text):
         if text[start+end] != pattern[end]:
             start += 1 # Moving text pointer to next letter
-            end = 0 # Resetting end to be 0, if no match found
+            end = 0 # Resetting end to be 0, moment match not found
             continue
         else: # There is a match so move the pointer down
             end += 1
@@ -23,7 +23,6 @@ def contains(text, pattern):
             return True
 
     return False
-
 
 
 def find_index(text, pattern):
@@ -76,17 +75,17 @@ def find_all_indexes(text, pattern):
         if end == len(pattern): # They all matches so return the start which is index
             list_match_indexes.append(start)
             # To handle overlapping patterns
-            if end >= 2: 
-                same = 0
+            if end > 1: 
+                same = 0 # Get number of overlapping instances
                 for i in range(end-1):
                     if pattern[i] == pattern[i+1]:
                         same += 1
-                start += end - same
+                start += end - same # Set start to be back however many overlapping is seen
                 end = 0
 
-            # Else no overlapping to just move start to next letter in text
+            # Else if end == 1 to just move start to next letter in text
             start += end # Move start pointer of text to after the match
-            end = 0 # To rest end point for the pattern, to look for another pattern in text
+            end = 0 # To reset end point for the pattern, to look for another pattern in text
 
     return list_match_indexes
 
