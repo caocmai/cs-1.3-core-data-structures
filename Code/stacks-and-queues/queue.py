@@ -31,7 +31,7 @@ class LinkedQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(1) – Becuase you know the tail [TODO]"""
+        Running time: O(1) – Becuase you know the tail """
         # TODO: Insert given item
         self.list.append(item)
 
@@ -47,7 +47,7 @@ class LinkedQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(1) – Because know the reference to the head[TODO]"""
+        Running time: O(1) – Because know the reference to the head"""
         # TODO: Remove and return front item, if any
 
         if self.is_empty():
@@ -89,7 +89,7 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(1) – Because there's extra memory at the end to add one more item to array[TODO]"""
+        Running time: O(1) – Because there's extra memory at the end to add one more item to array"""
         # TODO: Insert given item
         self.list.append(item)
 
@@ -106,7 +106,7 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(n) – Because when you remove the front entire array must shift"""
         # TODO: Remove and return front item, if any
         if self.is_empty():
             raise ValueError("List Empty!")

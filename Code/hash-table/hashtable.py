@@ -148,8 +148,10 @@ class HashTable(object):
         """Resize this hash table's buckets and rehash all key-value entries.
         Should be called automatically when load factor exceeds a threshold
         such as 0.75 after an insertion (when set is called with a new key).
-        Best and worst case running time: ??? under what conditions? 
-        Best and worst case space usage: ??? what uses this memory? """
+        Best and worst case running time: O(2n) because have to create new array and linked list, each taking n time 
+                                                thus, n + n = 2n
+        Best and worst case space usage: O(2n)  becuase have to create new array and linked list, each needing n space,
+                                                thus, n + n = 2n """
         # If unspecified, choose new size dynamically based on current size
         if new_size is None:
             new_size = len(self.buckets) * 2  # Double size
