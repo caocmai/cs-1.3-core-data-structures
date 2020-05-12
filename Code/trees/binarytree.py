@@ -16,23 +16,31 @@ class BinaryTreeNode(object):
     def is_leaf(self):
         """Return True if this node is a leaf (has no children)."""
         # TODO: Check if both left child and right child have no value
-        return ... and ...
+        return self.left is None and self.right is None
 
     def is_branch(self):
         """Return True if this node is a branch (has at least one child)."""
         # TODO: Check if either left child or right child has a value
-        return ... or ...
+        return self.left is not None or self.right is not None
 
     def height(self):
         """Return the height of this node (the number of edges on the longest
         downward path from this node to a descendant leaf node).
-        TODO: Best and worst case running time: ??? under what conditions?"""
+        Best and worst case running time: O(h) where h is the height of the tree"""
+
+        if self is None: # Check if root node exists
+            return 0
+
+        left_height = 0
+        right_height = 0
         # TODO: Check if left child has a value and if so calculate its height
-        ...
+        if self.left is not None:
+            left_height = self.left.height() + 1
         # TODO: Check if right child has a value and if so calculate its height
-        ...
+        if self.right is not None:
+            right_height = self.right.height() + 1
         # Return one more than the greater of the left height and right height
-        ...
+        return max(left_height, right_height)
 
 
 class BinarySearchTree(object):
@@ -86,7 +94,7 @@ class BinarySearchTree(object):
         # Handle the case where the tree is empty
         if self.is_empty():
             # TODO: Create a new root node
-            self.root = ...
+            self.root = BinaryTreeNode(item)
             # TODO: Increase the tree size
             self.size ...
             return
@@ -112,7 +120,7 @@ class BinarySearchTree(object):
         # Start with the root node
         node = self.root
         # Loop until we descend past the closest leaf node
-        while node is not None:
+        while node is not None: # Not at a leaf
             # TODO: Check if the given item matches the node's data
             if ...:
                 # Return the found node
@@ -120,11 +128,11 @@ class BinarySearchTree(object):
             # TODO: Check if the given item is less than the node's data
             elif ...:
                 # TODO: Descend to the node's left child
-                node = ...
+                node = node.left
             # TODO: Check if the given item is greater than the node's data
             elif ...:
                 # TODO: Descend to the node's right child
-                node = ...
+                node = node.right
         # Not found
         return None
 
@@ -210,6 +218,15 @@ class BinarySearchTree(object):
         # TODO: Use helper methods and break this algorithm down into 3 cases
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
+        # call some find method
+        if : # leaf
+            pass
+        elif : # one child
+            pass
+        else: # two children
+            pass
+        # get inorder sucessor helper
+
 
     def items_in_order(self):
         """Return an in-order list of all items in this binary search tree."""
